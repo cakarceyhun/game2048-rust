@@ -1,0 +1,29 @@
+<!doctype html>
+
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8" />
+		<title>hello-wasm example</title>
+	</head>
+	<body>
+<table id="game2048">
+  <tr><td id="cell00"></td><td id="cell01"></td><td id="cell02"></td><td id="cell03"></td></tr>
+  <tr><td id="cell10"></td><td id="cell11"></td><td id="cell12"></td><td id="cell13"></td></tr>
+  <tr><td id="cell20"></td><td id="cell21"></td><td id="cell22"></td><td id="cell23"></td></tr>
+  <tr><td id="cell30"></td><td id="cell31"></td><td id="cell32"></td><td id="cell33"></td></tr>
+ </table>
+		<script type="module">
+		    import init, { process, DirectionEnum } from "./pkg/hello_wasm.js";
+		        init().then(() => {
+                            /*for (let i = 0; i < 4; i++) {
+                                for (let j = 0; j < 4; j++) {
+                                    document.querySelector('#cell' + i.toString() + j.toString()).innerHTML = i * 4 + j + 1;     
+                                }
+                                }*/
+                            document.querySelector('#cell00').innerHTML = process(DirectionEnum.Left);
+
+			});
+		</script>
+	</body>
+</html>
+
